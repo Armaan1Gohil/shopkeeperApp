@@ -85,7 +85,56 @@ npm -v
       
       module.exports = oauth;
     ```
-    
+
+10. open `keys/mail.js`
+   * Go To [Google Cloud](https://console.cloud.google.com/apis/credentials)
+   * select create credentials
+   * Create OAuth client ID
+   * select web application
+   * Enter javascript origin `https://developers.google.com` 
+   * Enter redirect URI `https://developers.google.com/oauthplayground`
+   * copy the client ID and Client Secret to the postions in the `keys/mail.js` and set user = `youremailid@gmail.com`
+   * By Now The File should look like
+   ```
+      mail = {
+          type:'OAuth2',
+          user: 'youremailid@gmail.com',
+          clientId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+          clientSecret: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
+          refreshToken: '',
+          accessToken: '',
+          expires: 1484314697598
+      }
+
+      module.exports = mail;
+   ```
+   ***save these clientid and client secret to nodepad file as we need those in the next step***
+
+11. open [Google Playground](https://developers.google.com/oauthplayground)
+   * open Setting and fill your clientId and Client secret
+   * ![enable api](https://raw.githubusercontent.com/Gurpreetsingh9465/fabrik-bugs/master/seting.png)
+   * In the select and scope section select `https://mail.google.com/` under Gmail API v1 and press authorize and sign in.
+   * copy the refresh and access token and paste it to `/keys/mail.js`
+   ```
+   mail = {
+          type:'OAuth2',
+          user: 'youremailid@gmail.com',
+          clientId: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+          clientSecret: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
+          refreshToken: 'xxxxxxxxxxxxxxxxxxxxxx',
+          accessToken: 'xxxxxxxxxxxxxxxxxxxxxxxx',
+          expires: 1484314697598
+      }
+
+      module.exports = mail;
+   ```
+   * make sure to tick `autorefresh token it expires`
+   * save all settings
+
+### Final Step :flushed:
+12. open 2 terminal/cmd with location `your/location/shopkeeper/`
+   * inside terminal one run `npm run watch`
+   * inside terminal two run `nodemon`
 
     
 
