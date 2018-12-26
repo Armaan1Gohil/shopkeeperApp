@@ -135,6 +135,7 @@ npm -v
 12. open 2 terminal/cmd with location `your/location/shopkeeper/`
    * inside terminal one run `npm run watch`
    * inside terminal two run `nodemon`
+   * open browser with url localhost:3000
 
     
 
