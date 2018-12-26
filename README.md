@@ -46,7 +46,7 @@ npm -v
  7. Change the contents of `.env` file
     ```
     DEBUG = *,-babel*,-eslint:*,-express*,-body*,-send*,-morgan*
-    DATABASE_USER = postgres
+    DATABASE_USER = admin
     DATABASE_PASSWORD = root
     DB_HOST = localhost
     DB_PORT = 5432
