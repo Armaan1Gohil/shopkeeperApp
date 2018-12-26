@@ -1,49 +1,77 @@
 # shopkeeperApp
 
-
-[![Join the chat at https://gitter.im/Cloud-CV/Fabrik](https://badges.gitter.im/Cloud-CV/Fabrik.svg)](https://gitter.im/Cloud-CV/Fabrik?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/Cloud-CV/Fabrik.svg?branch=master)](https://travis-ci.org/Cloud-CV/Fabrik)
-[![Coverage Status](https://coveralls.io/repos/github/Cloud-CV/Fabrik/badge.svg?branch=master)](https://coveralls.io/github/Cloud-CV/Fabrik?branch=master)
-[![Documentation Status](https://readthedocs.org/projects/markdown-guide/badge/?version=latest)](http://fabrik.readthedocs.io/en/latest/)
-
-Fabrik is an online collaborative platform to build, visualize and train deep learning models via a simple drag-and-drop interface. It allows researchers to collectively develop and debug models using a web GUI that supports importing, editing and exporting networks to popular frameworks like Caffe, Keras, and TensorFlow.
-
-<img src="/example/fabrik_demo.gif?raw=true">
-
-This app is presently under active development and we welcome contributions. Please check out our [issues thread](https://github.com/Cloud-CV/IDE/issues) to find things to work on, or ping us on [Gitter](https://gitter.im/Cloud-CV/IDE).
-
+<img src="https://raw.githubusercontent.com/Gurpreetsingh9465/shopkeeperApp/master/public/favicon.png?raw=true">
 
 ## Installation Instructions
 
-Setting up Fabrik on your local machine is very easy. You can setup Fabrik using two methods:
 
-### Using Docker
+#### Installation
+1. Install Node.js
+    *[Install Node.js](https://nodejs.org)
 
-#### Docker Installation
-If you haven't installed Docker already: </br>
+2. Verify Installation (open Terminal/CMD)
+```
+node -v
+npm -v
+```
 
-To install Docker for Windows [click here](https://docs.docker.com/docker-for-windows/install/).
+3. Install Postgrsql [Install Postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) **Important** *note the username and password used while installing postgresql.* ***prefered username=postgres password = root****
+* Setup postgres database (open terminal/CMD)
+    * Go to The installation path ```cd C:\Program Files\PostgreSQL\11\bin```
+    * login as user postgres by running ```psql.exe -U postgres``` and type the commands below:
 
-To install Docker for Mac [click here](https://docs.docker.com/docker-for-mac/install/).
+        ```
+        CREATE DATABASE shopkeeper;
+        CREATE USER admin WITH PASSWORD 'root';
+        ALTER ROLE admin SET client_encoding TO 'utf8';
+        ALTER ROLE admin SET default_transaction_isolation TO 'read committed';
+        ALTER ROLE admin SET timezone TO 'UTC';
+        ALTER USER admin CREATEDB;
+        ```
 
-#### Fabrik Installation
-1. Get the source code on to your machine via git.
+    * Exit psql by typing in \q and hitting enter.
+
+4. open terminal/CMD with desired location and type the following commands
+
+5. Get the source code on to your machine via git.
 
     ```
-    git clone https://github.com/Cloud-CV/Fabrik.git && cd Fabrik
+    git clone https://github.com/Gurpreetsingh9465/shopkeeperApp.git && cd shopkeeperApp
     ```
 
-2. Rename `settings/dev.sample.py` as `dev.py`.
+6. Rename `sample.env` as `.env`.
 
     ```
-    cp settings/dev.sample.py settings/dev.py
+    mv sample.env .env
     ```
+ 
+ 7. Change the contents of `.env` file
+    ```
+    DEBUG = *,-babel*,-eslint:*,-express*,-body*,-send*,-morgan*
+    DATABASE_USER = postgres
+    DATABASE_PASSWORD = root
+    DB_HOST = localhost
+    DB_PORT = 5432
+    DATABASE = shopkeeper
+    SECRET = J@NcRfUjXn2r5u8x/A?D*G-KaPdSgVkYp3s6v9y$B&E)H+MbQeThWmZq4t7w!z%C
+    API_HOST = http://localhost:3000
+    IMAGE_DEST = "desired/location/to/upload/images"
+    ```
+    
+8. Install Packets (open terminal/CMD with location ```desired/location/shopkeeperApp```)
+    ```
+    npm install -g nodemon
+    ```
+    * install All packages like react express etc..
+    ```
+    npm install
+    ```
+    
+9. open `keys/oauth.js` in your favorite text editor
+    * Go To [Google Cloud]()
 
-3. Build and run the Docker containers. This might take a while. You should now be able to access Fabrik at <http://0.0.0.0:8000>.
 
-    ```
-    docker-compose up --build
-    ```
+ 
 
 ### Setup Authentication for Docker Environment
 1. Go to Github Developer Applications and create a new application. [here](https://github.com/settings/developers)
