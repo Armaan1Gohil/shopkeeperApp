@@ -5,7 +5,7 @@
 
 #### Installation
 1. Install Node.js
-    *[Install Node.js](https://nodejs.org)
+    * [Install Node.js](https://nodejs.org)
 
 2. Verify Installation (open Terminal/CMD)
 ```
@@ -13,7 +13,7 @@ node -v
 npm -v
 ```
 
-3. Install Postgrsql [Install Postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) **Important** *note the username and password used while installing postgresql.* ***prefered username=postgres password = root****
+3. Install Postgrsql [Install Postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) **Important** *note the username and password used while installing postgresql.* ***prefered username=postgres password = root***
 * Setup postgres database (open terminal/CMD)
     * Go to The installation path ```cd C:\Program Files\PostgreSQL\11\bin```
     * login as user postgres by running ```psql.exe -U postgres``` and type the commands below:
